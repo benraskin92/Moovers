@@ -1,0 +1,142 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/**************************
+HEADING
+**************************/
+
+header {
+	float: left;
+	margin: 0 0 30px 0;
+	padding: 5px 0 0 0;
+	width: 100%;
+	background-color: #1896C4;
+	border-bottom: 5px solid #003C52;
+	margin-top: 0;
+	height: 95px;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+#logo {
+	float: left;
+	margin-left: 3%;
+	width: 45%;
+	text-align: left;
+}
+
+header h1 {
+	font-family: 'Changa One', sans-serif;
+	margin: 15px 0;
+	font-size: 3.5em;
+	font-weight: normal;
+	line-height: 0.5em;
+	margin-bottom: 10px;
+}
+
+
+header h2 {
+	font-size: 0.825em;
+	margin-bottom: 20px;
+	font-weight: normal;
+}
+
+header a:hover {
+	text-decoration: none;
+	color: #000000;
+}
+
+/**************************
+HEADING
+**************************/
+
+nav {
+	background: #1896C4;
+	float: right;
+	font-size: 1.125em;
+	margin-right: 2.5%;
+	text-align: right;
+	padding-top: 65px;
+	/*width: 45%;*/
+}
+
+nav ul {
+	list-style: none;
+	margin: 0 10px;
+	padding: 0;
+	line-height: 1em;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav a {
+	font-weight: 800;
+	padding: 15px 10px;
+}
+
+a:visited {
+	color: #000000;
+}
+
+#wrapper {
+	margin: 0 auto;
+	padding: 0 5%;
+	max-width: 940px;
+	background-color: #BA673D;
+	text-align: center;
+}
+
+#submit_location {
+	float: center;
+}
+
+#moving_info {
+	margin-top: 0;
+}
+
+
+#moving_posts_main {
+	width: 720px;
+	margin-bottom: 20px;
+	overflow: hidden;
+	border-bottom: #ccc;
+	 -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+}
+
+#moving_posts_main li  {
+	width: 100%;
+	padding: auto;	
+} 
+
+/**************************
+Forms
+**************************/
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#signup {
+	margin-top: 0;
+	text-align: center;
+}

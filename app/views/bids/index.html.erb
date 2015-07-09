@@ -1,0 +1,7 @@
+<ul>
+<% @bid.each do |bid| %>
+<li>$<%= bid.price.floor %></li>
+<li>Company Name: <%= bid.company_name %></li>
+<li>Company Phone: <%= bid.company_phone %></li>
+<% end %>
+</ul>

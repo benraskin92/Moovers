@@ -1,0 +1,68 @@
+<div style='text-align: center;'>
+<h1 id="moving_info">Enter your information</h1>
+<h4>You will be notified when someone bids!</h2>
+</div>
+
+	<%= form_for(@post) do |f| %>
+<div style='float: left; width: 50%;'>
+	<div class="row">
+  			<div class="col-md-6 col-md-offset-3">
+<h2>Moving...</h2>
+<h3>From:</h3>
+	<%= f.label "Street" %>
+	<%= f.text_field :fromstreet, class: "form-control" %>
+
+	<%= f.label "City" %>
+	<%= f.text_field :fromcity, class: "form-control" %>
+
+	<%= f.label "State" %>
+	<%= f.select :fromstate, options_for_select(us_states) %>
+
+	<%= f.label "Postal Code" %>
+	<%= f.text_field :fromzip, class: "form-control" %>
+
+	<h3>To:</h3>
+	<%= f.label "Street" %>
+	<%= f.text_field :tostreet, class: "form-control" %>
+
+	<%= f.label "City" %>
+	<%= f.text_field :tocity, class: "form-control" %>
+
+	<%= f.label "State" %>
+	<%= f.select :tostate, options_for_select(us_states) %>
+
+	<%= f.label "Postal Code" %>
+	<%= f.text_field :tozip, class: "form-control" %>
+</div>
+</div>
+</div>
+
+<div style='float: right; width: 50%;'>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  	<br></br>
+  	<br></br>
+	<%= f.label "Bedrooms" %>
+	<%= f.select(:bedrooms, options_for_select([['Studio','studio'],['One Bedroom','one'],['Two Bedroom','two'],['Three Bedroom','three'],['Four Bedroom','four'],['Five Bedrooms+','plus']]))%>
+
+	<%= f.label "Walkup?" %>
+	<%= f.check_box :walkup %>
+
+	<%= f.label "Number of Floors" %>
+	<%= f.number_field :floor %>
+
+	<%= f.label "Desired Date to Move?" %>
+	<%= f.date_field :date %>
+
+	<%= f.label "Additional Notes" %>
+	<%= f.text_area :notes, :placeholder => "Enter additional moving notes...", :size => "48x6"%>
+</div>
+</div>
+</div>
+
+<div id="submit_location">
+	<%= f.submit "Click to move", class: "btn btn-primary" %>
+
+	<% end %>
+</div>
+

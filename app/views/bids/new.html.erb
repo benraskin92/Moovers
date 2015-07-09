@@ -1,0 +1,27 @@
+<%= form_for(@bid) do |f| %>
+ <%= render 'shared/error_messages' %>
+<div style='float: left; width: 50%;'>
+	<div class="row">
+  			<div class="col-md-6 col-md-offset-3">
+
+	<%= f.label "Price" %>
+	<%= f.text_field :price, class: "form-control" %>
+
+	<%= f.label "Company Name" %>
+	<%= f.text_field :company_name, class: "form-control" %>
+
+	<%= f.label "Company Phone" %>
+	<%= f.telephone_field :company_phone, :placeholder => "XXX-XXX-XXXX", class: "form-control" %>
+
+	<%= f.label "Company Email" %>
+	<%= f.text_field :company_email, class: "form-control" %>
+
+	<%= f.hidden_field :post_id, :value => @post.id %>
+
+	<br></br>
+	<%= f.submit "Submit bid", class: "btn btn-primary" %>
+</div>
+</div>
+</div>
+
+<% end %>

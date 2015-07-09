@@ -1,0 +1,35 @@
+<head>
+		<title>Moovers</title>
+		<link rel="stylesheet" href="assets/stylesheets/normalize.css">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Changa+One' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="assets/stylesheets/custom.css">
+	</head>
+	<body>
+		<header>
+			<a href="/" id="logo">
+			<h1>Moovers</h1>
+			<h2>An easy way to move in NYC</h2>
+			</a>
+			<nav>
+				<ul>
+					<% #if logged_in? %>
+          <li><%= link_to "Users", '#' %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+             
+              <li class="divider"></li>
+              <li>
+              
+              </li>
+            </ul>
+          </li>
+        <% #else %>
+         
+
+        <% #end %>
+				<ul>
+			</nav>
+		</header>	
