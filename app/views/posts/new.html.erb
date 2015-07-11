@@ -56,9 +56,14 @@
 
 	<%= f.label "Additional Notes" %>
 	<%= f.text_area :notes, :placeholder => "Enter additional moving notes...", :size => "48x6"%>
+
+
+	<%= f.hidden_field :user_id, :value => current_user.id %>
 </div>
 </div>
 </div>
+
+	
 
 <div id="submit_location">
 	<%= f.submit "Click to move", class: "btn btn-primary" %>

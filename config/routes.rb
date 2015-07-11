@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+
   get 'users/new'
 
   root 'static_pages#home'
@@ -8,6 +10,9 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   get '/posts/:id/new_bid' => 'bids#new'
   get '/posts/:id/bids' => 'bids#index'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
 
   resources :posts
   resources :bids

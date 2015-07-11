@@ -18,13 +18,9 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-<h5>I am a: </h5>
-
-      <%= f.radio_button :acct_type, "mover" %>
-      <%= f.label :acct_type, "Company looking to be hired" %>
-      <%= f.radio_button :acct_type, "individual" %>
-      <%= f.label :acct_type, "Person looking to move" %>
-
+      <%= f.label "I am a:" %>
+      <%= f.select(:acct_type, options_for_select([['Individual looking to move','individual'],['Company looking to get hired','mover']]))%>
+      
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
   </div>

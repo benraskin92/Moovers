@@ -1,7 +1,13 @@
 class PostsController < ApplicationController
+	before_action :require_user
 
 	def new
-		@post = Post.new
+		if current_user.acct_type == 'individual'
+			@post = current_user.posts.new
+		else
+			redirect_to root_path
+			flash[:notice] = 'You do not have the correct account type'
+		end
 	end
 
 	def show
@@ -9,10 +15,10 @@ class PostsController < ApplicationController
 	end
 
 	def index
-		@post = Post.all
-		@hash = Gmaps4rails.build_markers(@posts) do |post, marker|
-		  marker.lat post.latitude
-		  marker.lng post.longitude
+		if current_user.acct_type == 'individual'
+			@post = current_user.posts
+		else
+			@post = Post.all
 		end
 	end
 
@@ -29,7 +35,7 @@ class PostsController < ApplicationController
 	def post_params
 		params.require(:post).permit(:fromcity, :fromstate, :fromstreet, :fromzip,
 								:tocity, :tostreet, :tostate, :tozip,
-								:bedrooms, :walkup, :floor, :date, :notes)
+								:bedrooms, :walkup, :floor, :date, :notes, :user_id)
 	end
 
 end

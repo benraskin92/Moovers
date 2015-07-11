@@ -1,8 +1,14 @@
 class BidsController < ApplicationController
+	before_action :require_user
 
 	def new
-		@bid = Bid.new
-		@post = Post.find(params[:id])
+		if current_user.acct_type == 'mover'
+			@bid = Bid.new
+			@post = Post.find(params[:id])
+		else 
+			redirect_to root_path
+			flash[:notice] = 'You do not have the correct account type'
+		end
 	end
 
 	def show
