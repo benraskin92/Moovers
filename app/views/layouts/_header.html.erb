@@ -7,13 +7,14 @@
 	<body>
 		<header>
 			<a href="/" id="logo">
-			<h1>Moovers</h1>
+			<h1>Test Website</h1>
 			<h2>An easy way to move in NYC</h2>
 			</a>
 			<nav>
 				<ul>
 					<% if logged_in? %>
-          <li><%= link_to "Users", '#' %></li>
+		<li>Account type: <%= current_user.acct_type %></li>
+          <li><%= link_to "Users", '/posts' %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>

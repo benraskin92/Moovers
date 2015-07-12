@@ -12,7 +12,12 @@ class BidsController < ApplicationController
 	end
 
 	def show
-		@bid = bids.find(params[:id])
+		if current_user.acct_type == 'mover'
+			@bid = bids.find(params[:id])
+		else 
+			redirect_to root_path
+			flash[:notice] = 'You do not have the correct account type'
+		end	
 	end
 
 	def index

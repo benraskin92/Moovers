@@ -1,5 +1,8 @@
 <% @post.each do |post| %>
 <ul id='moving_posts_main'><span class="code-comment">
+<div id='post_div_1'>
+<li><h4><%= post.created_at %></h4></li>
+<li><h4><%= post.created_at + 2.days %></h4></li>
 <li><h4>Moving from:</h4></li>
 	<li><%= post.fromstreet %></li>
 	<li><%= post.fromcity %></li>
@@ -10,6 +13,8 @@
 	<li><%= post.tocity %></li>
 	<li><%= post.tostate %></li>
 	<li><%= post.tozip %></li>
+</div>
+<div id='post_div_2'>
 	<li># of Bedrooms: <%= post.bedrooms %></li>
 	<li>Walkup: <% if post.walkup == true %>
 				<%= 'Yes' %>
@@ -19,6 +24,7 @@
 	<li>Floor Number: <%= post.floor %></li>
 	<li>Moving Date: <%= post.date %></li>
 	<li>Additional Notes? <%= post.notes %></li>
+</div>
 	</span>
 	</ul>
 	<ul>

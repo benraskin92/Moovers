@@ -14,6 +14,10 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 	end
 
+	def time_left(time_created_at)
+		time_left = time_created_at + 2.days
+	end
+
 	def index
 		if current_user.acct_type == 'individual'
 			@post = current_user.posts
