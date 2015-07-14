@@ -40,6 +40,8 @@
   color: blue;
 } 
 
+<% if post.created_at <= time.now %>
+
 #Movers can see all posts and bid on all posts, but can only see their own bids 
 #Individuals can post and see their own posts. Can also see only their own bids
 #time_left method - figure out how to do math with dates in ruby

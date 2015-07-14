@@ -87,7 +87,6 @@ a:visited {
 	margin: 0 auto;
 	padding: 0 5%;
 	max-width: 940px;
-	background-color: #BA673D;
 	text-align: center;
 }
 
@@ -125,6 +124,23 @@ a:visited {
   color: blue;
 } 	
 
+/**************************
+FOOTER
+**************************/
+
+footer {
+	font-size: 0.75em;
+	text-align: center;
+	clear: both;
+	padding-top: 40%;
+	color: #cccccc;
+}
+
+.social-icon {
+	width: 20px;
+	height: 20px;
+	margin: 0 5px;
+}
 
 /**************************
 Forms
