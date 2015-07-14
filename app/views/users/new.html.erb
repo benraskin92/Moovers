@@ -15,12 +15,13 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "Password Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-
+<br>
       <%= f.label "I am a:" %>
       <%= f.select(:acct_type, options_for_select([['Individual looking to move','individual'],['Company looking to get hired','mover']]))%>
-      
+<br>
+<br>
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
   </div>

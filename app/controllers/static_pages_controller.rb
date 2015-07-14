@@ -9,4 +9,7 @@ class StaticPagesController < ApplicationController
 	def contact
 	end
 	
+	def has_bid
+	end
+
 end

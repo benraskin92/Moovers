@@ -99,30 +99,42 @@ a:visited {
 }
 
 #moving_posts_main {
-  width: 100%;
-  margin-bottom:20px;
-  overflow:hidden;
-  border-top:1px solid #ccc;
-  columns: 2;
+	width: 100%;
+	margin-bottom: 20px;
+	overflow: hidden;
+	border-top: 1px solid #ccc;
+	-moz-column-count: 2;
+	-moz-column-gap: 2.5em;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 2.5em;
+    column-count: 2;
+    column-gap: 2.5em;
+    /*padding-left: 28%;*/
+    text-align: center;
+    padding-top: 8px;
 }
 
-#moving_posts_main #post_div_1 li  {
-  line-height:1.5em;
-  /*border-bottom:1px solid #ccc;*/
-  float:left;
-  display:inline;
-  width: 75%;
-  color: blue;
-} 
+#bid_time {
+	list-style: none;
+}
 
-#moving_posts_main #post_div_2 li  {
-  line-height:1.5em;
-  /*border-bottom:1px solid #ccc;*/
-  float:left;
-  display:inline;
-  width: 50%;
-  color: blue;
-} 	
+#bid_time h4 {
+	text-align: center;
+	font-size: 1.25em;
+	margin-top: 0;
+}
+
+#post_other_info {
+	list-style: none;
+}
+
+#post_links {
+	list-style: none;
+}
+
+#post_links li {
+	padding: 2px 0 2px 0;
+}
 
 /**************************
 FOOTER
