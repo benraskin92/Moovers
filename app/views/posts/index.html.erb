@@ -28,7 +28,8 @@
 	<ul id='post_links'>
 	<li><button><%= link_to "Click here to see more about this move", "/posts/#{post.id}"  %></li></button>
 	<li><button><%= link_to "Place a bid", "/posts/#{post.id}/new_bid"  %></li></button>
-	<li><button><%= link_to "View bids", "/posts/#{post.id}/bids" %></li></button>  
+	<li><button><%= link_to "View bids", "/posts/#{post.id}/bids" %></li></button>
+	<li><button><%= link_to "Edit post", "/posts/#{post.id}/edit" %></li></button>    
 </ul>
 <% end %>
 <% end %>

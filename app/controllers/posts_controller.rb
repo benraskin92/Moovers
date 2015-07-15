@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-	before_action :require_user
+	before_action :logged_in_user
+	before_action :post_owner, only: [:edit, :update, :show]
 
 	def new
 		if current_user.acct_type == 'individual'
@@ -33,6 +34,20 @@ class PostsController < ApplicationController
 			flash[:notice] = 'Moving information added!'
 		else
 			render 'new'
+		end
+	end
+
+	def edit
+		@post = Post.find(params[:id])
+	end
+
+	def update
+		@post = Post.find(params[:id])
+		if @post.update_attributes(post_params)
+			flash[:success] = "Post updated!"
+			redirect_to root_path
+		else
+			render 'edit'
 		end
 	end
 
