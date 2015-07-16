@@ -1,12 +1,14 @@
 <%= provide(:title, "Home") %>
 	<div id="wrapper">
 			<section>
-				<% if logged_in? %>
-			<button><a href="/posts">View Posts</a></button>
-			<div stlye="text-align: center;">OR</div>
-			<button><a href="/add">Add Post</a></button>
-				<% else %>
-			<button><a href="/signup">Start Moving!</a></button>
+			<% if logged_in? %>
+			<div id='home_page'>
+				<a href="/posts"><div class='button light center'>View Posts</div></a>
+				<!-- <div stlye="text-align: center;">OR</div> -->
+				<a href="/add"><div class='button light center'>Add Post</div></a>
+			<% else %>
+				<a href="/signup"><div class='button light center'>Start Moving!</div></a>
+			</div>
 			<% end %>
 		</section>
 		</div>

@@ -1,5 +1,6 @@
 module PostsHelper
 
+#Defines US states for new posts form
 	def us_states
     [
       ['Alabama', 'AL'],

@@ -1,6 +1,7 @@
 class BidsController < ApplicationController
 	before_action :require_user
 
+#Instantiates a new Bid class 
 	def new
 		if current_user.acct_type == 'mover'
 			@bid = Bid.new
@@ -11,6 +12,7 @@ class BidsController < ApplicationController
 		end
 	end
 
+#Show method for /views/bids/show.html.erb
 	def show
 		if current_user.acct_type == 'mover'
 			@bid = bids.find(params[:id])
@@ -20,10 +22,14 @@ class BidsController < ApplicationController
 		end	
 	end
 
+#This shows all of the bids for /views/bids/index.html.erb
+#Probably won't need this in the future
 	def index
 		@bid = Post.find(params[:id]).bids
 	end
 
+#Essentially saves a bid to the database
+#Also, instructions on what to do if bid isn't saved
 	def create 
 		@bid = Bid.new(bid_params)
 		if @bid.save
@@ -35,6 +41,7 @@ class BidsController < ApplicationController
 		end
 	end
 
+#Defines what the bid parameters are
 	def bid_params
 		params.require(:bid).permit(:price, :company_name, :company_street, :company_city,
 									:company_zip, :company_phone, :company_email, :post_id)
