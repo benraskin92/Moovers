@@ -50,6 +50,11 @@ class PostsController < ApplicationController
 #Edit a post - requires post_owner
 	def edit
 		@post = Post.find(params[:id])
+		if @post.bids.any?
+			flash[:danger] = "You are not allowed to edit posts that have recieved bids!"
+			redirect_to root_path
+		else
+		end
 	end
 
 #Saves 'edited' post to database

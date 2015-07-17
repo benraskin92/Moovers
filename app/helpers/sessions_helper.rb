@@ -22,7 +22,7 @@ module SessionsHelper
 	end
 
 #**** COME BACK ****#
-	def correct_user?(user)
+	def current_user?(user)
 		user == current_user
 	end
 end

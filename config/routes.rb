@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
-  root 'static_pages#home'
+  root 'users#new'
   get 'add' => 'posts#new'
   get 'posts' => 'posts#index'
   get 'signup' => 'users#new'

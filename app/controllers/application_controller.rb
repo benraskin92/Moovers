@@ -12,12 +12,6 @@ class ApplicationController < ActionController::Base
       end
     end
 
-#***** COME BACK *****#
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
-  end
-
 #Defines what an owner's post is
 #Like logged_in_user, certain pages such as edit require the owner's post
   def post_owner

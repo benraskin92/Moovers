@@ -1,5 +1,5 @@
 class BidsController < ApplicationController
-	before_action :require_user
+	before_action :logged_in_user
 
 #Instantiates a new Bid class 
 	def new
