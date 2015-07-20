@@ -1,3 +1,7 @@
+<% if current_user.posts.empty? && current_user.acct_type == 'individual' %>
+	<h2 style='text-align: center;'><%= "You do not have any posts" %></h2>
+	<div id="wrapper"><a href="/add"><div class='button light center'>Add Post</div></a></div>
+<% else %>
 <% @post.each do |post| %>
 
 <% if post.updated_at + 2.days >= Time.now && current_user.acct_type == 'mover'%>
@@ -38,12 +42,14 @@
 	<li>Additional Notes? <%= post.notes %></li>
 	<li><% if post.bids.any? %>
 		Number of Bids: <%= post.bids.count %>
+		<% else %>
+		<%= 'No Bids' %>
 	<% end %></li>
 </ul>
 	<ul id='post_links'>
 	<li><button><%= link_to "Click here to see more about this move", "/posts/#{post.id}"  %></li></button>
 	<li><button><%= link_to "Place a bid", "/posts/#{post.id}/new_bid"  %></li></button>
-	<li><button><%= link_to "View bids", "/posts/#{post.id}/bids" %></li></button>
+	<li><button><%= link_to "View my bid", "/posts/#{post.id}/bids" %></li></button>
 </ul>
 
 <% elsif post.updated_at + 2.days >= Time.now && current_user.acct_type == 'individual'%>
@@ -84,12 +90,73 @@
 	<li>Additional Notes? <%= post.notes %></li>
 	<li><% if post.bids.any? %>
 		Number of Bids: <%= post.bids.count %>
+		<% else %>
+		<%= 'No Bids' %>
 	<% end %></li>
 </ul>
 	<ul id='post_links'>
 	<li><button><%= link_to "Click here to see more about this move", "/posts/#{post.id}"  %></li></button>
 	<li><button><%= link_to "View bids", "/posts/#{post.id}/bids" %></li></button>
-	<li><button><%= link_to "Edit post", "/posts/#{post.id}/edit" %></li></button>    
+	<li><button><%= link_to "Edit post", "/posts/#{post.id}/edit" %></li></button> 
+	<li><button><%= link_to "Delete post", post, method: :delete,
+												 data: { confirm: "You sure?" } %></li></button>   
 </ul>
+<% end %>
+<% end %>
+
+<h3 style='text-align: center;'>Inactive Posts</h3>
+<% @post.each do |post| %>
+	<% if post.updated_at + 2.days <= Time.now && (current_user.acct_type == 'individual' || current_user.acct_type == 'mover') %>
+	<ul id='moving_posts_main'>
+<li><h4 style='margin-top: 0;'>Moving from:</h4></li>
+	<li><%= post.fromstreet %></li>
+	<li><%= post.fromcity %></li>
+	<li><%= post.fromstate %></li>
+	<li><%= post.fromzip %></li>
+<li><h4>Moving to:</h4></li>
+	<li><%= post.tostreet %></li>
+	<li><%= post.tocity %></li>
+	<li><%= post.tostate %></li>
+	<li><%= post.tozip %></li>
+</ul>
+<ul id='post_other_info'>
+	<li># of Bedrooms: <% case post.bedrooms when 'studio' %>
+					   <%= 'Studio' %>
+					   <% when 'one' %>
+					   <%= 'One Bedroom' %>
+					   <% when 'two' %>
+					   <%= 'Two Bedrooms' %>
+					   <% when 'three' %>
+					   <%= 'Three Bedrooms' %>
+					   <% when 'four' %>
+					   <%= 'Four Bedrooms' %>
+					   <% when 'plus' %>
+					   <%= 'Five+ Bedrooms' %>
+					   <% end %></li>
+	<li>Walkup: <% if post.walkup == true %>
+				<%= 'Yes' %>
+				<% else %>
+				<%= 'No' %>
+				<% end %></li>
+	<li>Floor Number: <%= post.floor %></li>
+	<li>Moving Date: <%= post.date %></li>
+	<li>Additional Notes? <%= post.notes %></li>
+	<li><% if post.bids.any? %>
+		Number of Bids: <%= post.bids.count %>
+		<% else %>
+		<%= 'No Bids' %>
+	<% end %></li>
+</ul>
+	<ul id='post_links'>
+	<% if current_user.acct_type == 'individual' %>
+	<li><button><%= link_to "Click here to see more about this move", "/posts/#{post.id}"  %></li></button>
+	<li><button><%= link_to "View bids", "/posts/#{post.id}/bids" %></li></button> 
+	<% elsif current_user.acct_type == 'mover' %>
+		<li><button><%= link_to "Click here to see more about this move", "/posts/#{post.id}"  %></li></button>
+		<li><button><%= link_to "View my bid", "/posts/#{post.id}/bids" %></li></button>
+	<% end %>
+</ul>
+
+<% end %>
 <% end %>
 <% end %>

@@ -3,5 +3,7 @@
 <li>$<%= bid.price.floor %></li>
 <li>Company Name: <%= bid.company_name %></li>
 <li>Company Phone: <%= bid.company_phone %></li>
+<li><%= link_to "Company Website", "http://#{bid.website}" %></li></a>
+<li>User ID: <%= bid.user_id %></li>
 <% end %>
 </ul>

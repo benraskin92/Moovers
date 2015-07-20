@@ -2,7 +2,8 @@ class PostsController < ApplicationController
 	#Any user has to be signed in
 	before_action :logged_in_user
 	#Posts owner needs to be signed in
-	before_action :post_owner, only: [:edit, :update, :show]
+	before_action :post_owner, only: [:edit, :update, :destroy]
+
 
 #Instantiates a new post in /view/posts/new
 #Only 'individual accounts can create posts'
@@ -20,6 +21,13 @@ class PostsController < ApplicationController
 #Need to be owner of post (see above)
 	def show
 		@post = Post.find(params[:id])
+		if (current_user.acct_type == 'individual' && current_user.id == @post.user_id) ||
+			(current_user.acct_type == 'mover')
+			@post = Post.find(params[:id])
+		else
+			redirect_to root_path
+			flash[:danger] = 'You do not have permissions to view this post'
+		end
 	end
 
 	def time_left(time_created_at)
@@ -66,6 +74,13 @@ class PostsController < ApplicationController
 		else
 			render 'edit'
 		end
+	end
+
+	def destroy
+		@post = Post.find(params[:id])
+		@post.destroy
+		flash[:success] = 'Post deleted!'
+		redirect_to root_path
 	end
 
 #Defines post parameters

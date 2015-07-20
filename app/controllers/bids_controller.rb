@@ -3,29 +3,27 @@ class BidsController < ApplicationController
 
 #Instantiates a new Bid class 
 	def new
-		if current_user.acct_type == 'mover'
+		post = Post.find(params[:id]).id
+		@bid_count = Bid.find_by_sql("SELECT * FROM bids b WHERE b.user_id = #{current_user.id} AND b.post_id = #{post} ")
+		bid_count = @bid_count.count
+		if (current_user.acct_type == 'mover' && bid_count < 1)  
 			@bid = Bid.new
 			@post = Post.find(params[:id])
-		else 
+		elsif (current_user.acct_type == 'mover' && bid_count >= 1)
 			redirect_to root_path
-			flash[:notice] = 'You do not have the correct account type'
+			flash[:danger] = 'You already placed a bid!'
+		elsif current_user.acct_type == 'individual'
+			redirect_to root_path
+			flash[:danger] = 'You do not have the correct account type'
 		end
 	end
 
-#Show method for /views/bids/show.html.erb
-	def show
-		if current_user.acct_type == 'mover'
-			@bid = bids.find(params[:id])
-		else 
-			redirect_to root_path
-			flash[:notice] = 'You do not have the correct account type'
-		end	
-	end
-
 #This shows all of the bids for /views/bids/index.html.erb
-#Probably won't need this in the future
 	def index
 		@bid = Post.find(params[:id]).bids
+		if (current_user.acct_type == 'mover')
+			@bid = current_user.bids
+		end
 	end
 
 #Essentially saves a bid to the database
@@ -44,7 +42,8 @@ class BidsController < ApplicationController
 #Defines what the bid parameters are
 	def bid_params
 		params.require(:bid).permit(:price, :company_name, :company_street, :company_city,
-									:company_zip, :company_phone, :company_email, :post_id)
+									:company_zip, :company_phone, :company_email, :post_id,
+									:user_id, :website)
 	end
 
 end

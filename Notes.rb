@@ -28,6 +28,10 @@
 
 #EDIT SO ONLY OWNER OF BID CAN SEE BID
 
+#Delete posts - with confirmation
+
+#Only have one bid per post
+
 
 
 
