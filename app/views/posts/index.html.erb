@@ -104,7 +104,7 @@
 <% end %>
 <% end %>
 
-<h3 style='text-align: center;'>Inactive Posts</h3>
+<h3 style='text-align: center; margin-top: 0;'>Inactive Posts</h3>
 <% @post.each do |post| %>
 	<% if post.updated_at + 2.days <= Time.now && (current_user.acct_type == 'individual' || current_user.acct_type == 'mover') %>
 	<ul id='moving_posts_main'>

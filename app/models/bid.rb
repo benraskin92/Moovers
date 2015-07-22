@@ -5,5 +5,5 @@ class Bid < ActiveRecord::Base
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :company_email, presence: true, 
 					format: { with: VALID_EMAIL_REGEX}
-	#validates :post_id, presence: true
+	validates :company_name, presence: true
 end

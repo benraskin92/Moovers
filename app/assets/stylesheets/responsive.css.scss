@@ -1,0 +1,23 @@
+@media screen and (max-width: 10px) {
+	#sidebar {
+    position:absolute;
+    top:0; bottom:0; left:0;
+    width:100px;
+    background-color: #1896C4;
+    margin-top: 250px;
+    margin-left: 1.5%;
+    margin-bottom: 250px;
+    color: white;
+    padding-right: 250px;
+    display: none;
+    
+}
+
+#sidebar p {
+	height: auto;
+	width: 250px;
+	color: green;
+	padding-left: 5px;
+	padding-right: 2.5px; 
+}
+}

@@ -1,8 +1,10 @@
+<h2 style="text-align: center; margin-top: 0;">Place a Bid!</h2>
+<div class="row">
+  	<div class="col-md-6 col-md-offset-3">
+
 <%= form_for(@bid) do |f| %>
  <%= render 'shared/error_messages' %>
-<div style='float: left; width: 50%;'>
-	<div class="row">
-  			<div class="col-md-6 col-md-offset-3">
+
 
 	<%= f.label "Price" %>
 	<%= f.text_field :price, class: "form-control" %>
@@ -24,7 +26,6 @@
 
 	<br></br>
 	<%= f.submit "Submit bid", class: "btn btn-primary" %>
-</div>
 </div>
 </div>
 

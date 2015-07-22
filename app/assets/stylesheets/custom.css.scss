@@ -187,16 +187,17 @@ $white: #FFFFFF;
   }
 
   #sidebar {
-    position:absolute;
+    /*position:absolute;*/
+    float: right;
     top:0; bottom:0; left:0;
-    width:100px;
+    width: 250px;
     background-color: #1896C4;
-    margin-top: 250px;
-    margin-left: 1.5%;
-    margin-bottom: 250px;
     color: white;
-    padding-right: 250px;
-    
+    margin-right: 25px;
+    padding: auto;
+    margin-top: 50px;
+    margin-left: 0px;
+    /*padding-left: 250px;*/   
 }
 
 #sidebar p {
@@ -205,7 +206,9 @@ $white: #FFFFFF;
 	color: black;
 	padding-left: 5px;
 	padding-right: 2.5px; 
+	/*float: right;*/
 }
+
 
 /**************************
 FOOTER
@@ -235,9 +238,6 @@ FOOTER
 Forms
 **************************/
 
-.form-control {
-	
-}
 
 input {
   height: auto !important;

@@ -28,6 +28,10 @@ class PostsController < ApplicationController
 			redirect_to root_path
 			flash[:danger] = 'You do not have permissions to view this post'
 		end
+		@hash = Gmaps4rails.build_markers(@post) do |post, marker|
+ 			marker.lat -45.03087
+  			marker.lng 168.660103 
+		end
 	end
 
 	def time_left(time_created_at)
