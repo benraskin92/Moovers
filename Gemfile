@@ -14,6 +14,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'bootstrap-sass',       '3.2.0.0'
 gem 'gmaps4rails'
 gem 'bcrypt'
+gem 'geocoder'
 
 
 group :development, :test do
