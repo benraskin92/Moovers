@@ -29,13 +29,13 @@ class PostsController < ApplicationController
 			flash[:danger] = 'You do not have permissions to view this post'
 		end
 		@hash = Gmaps4rails.build_markers(@post) do |post, marker|
-  			marker.lat post.to_lat
-  			marker.lng post.to_long
+  			marker.lat post.from_lat
+  			marker.lng post.from_long
 		end
 
 		@hash_2 = Gmaps4rails.build_markers(@post) do |post, marker|
-  			marker.lat 45
-  			marker.lng -75
+  			marker.lat post.to_lat
+  			marker.lng post.to_long
 		end
 	end
 
@@ -96,7 +96,8 @@ class PostsController < ApplicationController
 	def post_params
 		params.require(:post).permit(:fromcity, :fromstate, :fromstreet, :fromzip,
 								:tocity, :tostreet, :tostate, :tozip,
-								:bedrooms, :walkup, :floor, :date, :notes, :user_id)
+								:bedrooms, :walkup, :floor, :date, :notes, :user_id,
+								:from_lat, :from_long, :to_lat, :to_long)
 	end
 
 end

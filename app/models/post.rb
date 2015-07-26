@@ -2,10 +2,34 @@ class Post < ActiveRecord::Base
 	has_many :bids, dependent: :destroy
 	belongs_to :user
 
-	geocoded_by :to_address, :latitude => :to_lat, :longitude => :to_long
-	after_validation :geocode
+	geocoded_by :to_address,   :latitude   => :to_lat,   :longitude => :to_long
 
 	def to_address
 		[tostreet, tocity, tostate].compact.join(', ')
 	end
+
+	def from_address
+		[fromstreet, fromcity, fromstate].compact.join(', ')
+	end
+
+	def from_address_coords
+		coords = Geocoder.coordinates(self.from_address)
+		self.from_lat = coords[0]
+		self.from_long = coords[1]
+	end
+
+	before_save :from_address_coords
+
+	# def update_coordinates
+ #  		geocode
+ #  		[from_lat, from_long, to_lat, to_long]
+	# end
+
+	after_validation :geocode
+
 end
+
+# t.float    "from_lat"
+#     t.float    "from_long"
+#     t.float    "to_lat"
+#     t.float    "to_long"
