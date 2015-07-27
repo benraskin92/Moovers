@@ -9,11 +9,13 @@
 <ul id='moving_posts_main'>
 <li><h4 style='margin-top: 0;'>Moving from:</h4></li>
 	<li><%= post.fromstreet %></li>
+	<li>Floor Number: <%= post.from_floor %></li>
 	<li><%= post.fromcity %></li>
 	<li><%= post.fromstate %></li>
 	<li><%= post.fromzip %></li>
 <li><h4>Moving to:</h4></li>
 	<li><%= post.tostreet %></li>
+	<li>Floor Number: <%= post.to_floor %></li>
 	<li><%= post.tocity %></li>
 	<li><%= post.tostate %></li>
 	<li><%= post.tozip %></li>
@@ -57,11 +59,13 @@
 <ul id='moving_posts_main'>
 <li><h4 style='margin-top: 0;'>Moving from:</h4></li>
 	<li><%= post.fromstreet %></li>
+	<li>Floor Number: <%= post.from_floor %></li>
 	<li><%= post.fromcity %></li>
 	<li><%= post.fromstate %></li>
 	<li><%= post.fromzip %></li>
 <li><h4>Moving to:</h4></li>
 	<li><%= post.tostreet %></li>
+	<li>Floor Number: <%= post.to_floor %></li>
 	<li><%= post.tocity %></li>
 	<li><%= post.tostate %></li>
 	<li><%= post.tozip %></li>
@@ -85,7 +89,6 @@
 				<% else %>
 				<%= 'No' %>
 				<% end %></li>
-	<li>Floor Number: <%= post.floor %></li>
 	<li>Moving Date: <%= post.date %></li>
 	<li>Additional Notes? <%= post.notes %></li>
 	<li><% if post.bids.any? %>
@@ -95,7 +98,7 @@
 	<% end %></li>
 </ul>
 	<ul id='post_links'>
-	<li><button><%= link_to "Click here to see more about this move", "/posts/#{post.id}"  %></li></button>
+	<li><button><%= link_to "Click here to see more about this move", "/posts/#{post.id}", 'data-no-turbolink' => true  %></li></button>
 	<li><button><%= link_to "View bids", "/posts/#{post.id}/bids" %></li></button>
 	<li><button><%= link_to "Edit post", "/posts/#{post.id}/edit" %></li></button> 
 	<li><button><%= link_to "Delete post", post, method: :delete,
@@ -110,11 +113,13 @@
 	<ul id='moving_posts_main'>
 <li><h4 style='margin-top: 0;'>Moving from:</h4></li>
 	<li><%= post.fromstreet %></li>
+	<li>Floor Number: <%= post.from_floor %></li>
 	<li><%= post.fromcity %></li>
 	<li><%= post.fromstate %></li>
 	<li><%= post.fromzip %></li>
 <li><h4>Moving to:</h4></li>
 	<li><%= post.tostreet %></li>
+	<li>Floor Number: <%= post.to_floor %></li>
 	<li><%= post.tocity %></li>
 	<li><%= post.tostate %></li>
 	<li><%= post.tozip %></li>
@@ -138,7 +143,6 @@
 				<% else %>
 				<%= 'No' %>
 				<% end %></li>
-	<li>Floor Number: <%= post.floor %></li>
 	<li>Moving Date: <%= post.date %></li>
 	<li>Additional Notes? <%= post.notes %></li>
 	<li><% if post.bids.any? %>

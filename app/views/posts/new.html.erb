@@ -12,6 +12,9 @@
 	<%= f.label "Street" %>
 	<%= f.text_field :fromstreet, class: "form-control" %>
 
+	<%= f.label "Floor?" %>
+	<%= f.number_field :from_floor %>
+
 	<%= f.label "City" %>
 	<%= f.text_field :fromcity, class: "form-control" %>
 
@@ -24,6 +27,9 @@
 	<h3>To:</h3>
 	<%= f.label "Street" %>
 	<%= f.text_field :tostreet, class: "form-control" %>
+
+	<%= f.label "Floor?" %>
+	<%= f.number_field :to_floor %>
 
 	<%= f.label "City" %>
 	<%= f.text_field :tocity, class: "form-control" %>
@@ -48,9 +54,6 @@
 	<%= f.label "Walkup?" %>
 	<%= f.check_box :walkup %>
 <br>
-	<%= f.label "Number of Floors" %>
-	<%= f.number_field :floor %>
-
 	<%= f.label "Desired Date to Move?" %>
 	<%= f.date_field :date %>
 

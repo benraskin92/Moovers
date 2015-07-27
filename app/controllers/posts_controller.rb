@@ -96,7 +96,7 @@ class PostsController < ApplicationController
 	def post_params
 		params.require(:post).permit(:fromcity, :fromstate, :fromstreet, :fromzip,
 								:tocity, :tostreet, :tostate, :tozip,
-								:bedrooms, :walkup, :floor, :date, :notes, :user_id,
+								:bedrooms, :walkup, :from_floor, :to_floor, :date, :notes, :user_id,
 								:from_lat, :from_long, :to_lat, :to_long)
 	end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150724104857) do
+ActiveRecord::Schema.define(version: 20150726211537) do
 
   create_table "bids", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150724104857) do
     t.string   "tozip"
     t.string   "bedrooms"
     t.boolean  "walkup"
-    t.integer  "floor"
+    t.integer  "from_floor"
     t.date     "date"
     t.text     "notes"
     t.integer  "user_id"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150724104857) do
     t.float    "from_long"
     t.float    "to_lat"
     t.float    "to_long"
+    t.integer  "to_floor"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"

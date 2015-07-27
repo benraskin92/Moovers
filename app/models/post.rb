@@ -20,16 +20,6 @@ class Post < ActiveRecord::Base
 
 	before_save :from_address_coords
 
-	# def update_coordinates
- #  		geocode
- #  		[from_lat, from_long, to_lat, to_long]
-	# end
-
 	after_validation :geocode
 
 end
-
-# t.float    "from_lat"
-#     t.float    "from_long"
-#     t.float    "to_lat"
-#     t.float    "to_long"

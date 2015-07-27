@@ -4,11 +4,13 @@
 <ul id='moving_posts_main'>
 <li><h4 style='margin-top: 0;'>Moving from:</h4></li>
   <li><%= @post.fromstreet %></li>
+  <li>Floor Number: <%= @post.from_floor %></li>
   <li><%= @post.fromcity %></li>
   <li><%= @post.fromstate %></li>
   <li><%= @post.fromzip %></li>
 <li><h4>Moving to:</h4></li>
   <li><%= @post.tostreet %></li>
+  <li>Floor Number: <%= @post.to_floor %></li>
   <li><%= @post.tocity %></li>
   <li><%= @post.tostate %></li>
   <li><%= @post.tozip %></li>
@@ -32,7 +34,6 @@
         <% else %>
         <%= 'No' %>
         <% end %></li>
-  <li>Floor Number: <%= @post.floor %></li>
   <li>Moving Date: <%= @post.date %></li>
   <li>Additional Notes? <%= @post.notes %></li>
   <li><% if @post.bids.any? %>

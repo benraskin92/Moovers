@@ -21,3 +21,79 @@
 	padding-right: 2.5px; 
 }
 }
+
+@media screen and (max-width: 738px) {
+
+    /**************************
+    HEADER
+    **************************/
+
+    nav {
+        background: none;
+        float: right;
+        font-size: 1.125em;
+        margin-right: 5%;
+        text-align: right;
+        width: 45%;
+    }
+
+    #logo {
+        float: left;
+        margin-left: 5%;
+        text-align: left;
+        width: 45%;
+        font-size: 1em;
+    }
+
+    #logo h1 {
+            
+    }
+
+    h2 {
+        font-size: 0.825em;
+        margin-bottom: 20px;
+    }
+
+    header {
+        border-bottom: 5px solid #599a68;
+    }
+    
+}
+
+@media screen and (max-width: 645px) {
+
+    /**************************
+    HEADER
+    **************************/
+
+    nav {
+        background: none;
+        float: right;
+        font-size: 1.125em;
+        margin-right: 5%;
+        text-align: right;
+        width: 45%;
+    }
+
+    #logo {
+        float: left;
+        margin-left: 5%;
+        text-align: left;
+        width: 45%;
+        font-size: 0.75em;
+    }
+
+    #logo h1 {
+            
+    }
+
+    h2 {
+        font-size: 0.825em;
+        margin-bottom: 20px;
+    }
+
+    header {
+        border-bottom: 5px solid #599a68;
+    }
+    
+}
