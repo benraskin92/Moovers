@@ -2,17 +2,21 @@ class BidsController < ApplicationController
 	before_action :logged_in_user
 
 #Instantiates a new Bid class 
-	def new
-		post = Post.find(params[:id]).id
-		@bid_count = Bid.find_by_sql("SELECT * FROM bids b WHERE b.user_id = #{current_user.id} AND b.post_id = #{post} ")
+	def new 
+		post = Post.find(params[:id])
+		@bid_count = Bid.find_by_sql("SELECT * FROM bids b WHERE b.user_id = #{current_user.id} AND b.post_id = #{post.id} ")
 		bid_count = @bid_count.count
-		if (current_user.acct_type == 'mover' && bid_count < 1)  
+		case 
+		when (current_user.acct_type == 'mover' && bid_count < 1) && (post.updated_at + 2.days >= Time.now)
 			@bid = Bid.new
 			@post = Post.find(params[:id])
-		elsif (current_user.acct_type == 'mover' && bid_count >= 1)
+		when (current_user.acct_type == 'mover' && bid_count >= 1)
 			redirect_to root_path
 			flash[:danger] = 'You already placed a bid!'
-		elsif current_user.acct_type == 'individual'
+		when post.updated_at + 2.days <= Time.now
+			redirect_to root_path
+			flash[:danger] = 'Time has expired on this post!'
+		when current_user.acct_type == 'individual'
 			redirect_to root_path
 			flash[:danger] = 'You do not have the correct account type'
 		end
